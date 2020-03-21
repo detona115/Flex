@@ -26,6 +26,11 @@ Postgresql
 Download and see instructions on https://www.postgresql.org/download/
 ```
 ###### _Lembrete : para conectar com o SGBD, eu defini o usúario e senha como 'postgres' e '1234'_
+###### use o comando a seguir para definir o usuário e senha
+###### sudo su <user_name> 
+###### psql 
+###### ALTER USER <user_name> PASSWORD '<new_password>';
+###### onde <user_name> deve ser subsistuido por postgres e '<new_password>' por '1234'
 
 Psycopg2
 ```
