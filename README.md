@@ -29,7 +29,7 @@ Download and see instructions on https://www.postgresql.org/download/
 ###### use o comando a seguir para definir o usuário e senha
 ###### sudo su <user_name> 
 ###### psql 
-###### ALTER USER <user_name> PASSWORD '<new_password>';
+###### ALTER USER <user_name> WITH PASSWORD '<new_password>';
 ###### onde <user_name> deve ser subsistuido por postgres e '<new_password>' por '1234'
 
 Psycopg2
