@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 '''
 Created on 12 de mar de 2020
 
@@ -8,7 +10,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QTableWidgetItem
 from PyQt5.QtCore import QDate
 import requests
 from requests.exceptions import ConnectionError 
-#from requests.exceptions import InvalidURL
+from requests.exceptions import InvalidURL
 #import json
 import psycopg2
 from psycopg2.extras import Json
@@ -110,7 +112,7 @@ class MyForm(QMainWindow):
         except Error as errGetData:
             self.statusBar().setStyleSheet("color: red")
             self.statusBar().showMessage("Postgres server :'"+str(errGetData)+"'", 4000)
-            print("Erro ao recuperar nomes na base de dados 1")        
+                    
         else:
             # adicionando os nomes dos clientes na combobox Select Client
             for i in rows:                
@@ -128,7 +130,7 @@ class MyForm(QMainWindow):
         except Error as errConn:
             self.statusBar().setStyleSheet("color: red")
             self.statusBar().showMessage("Postgres server :'"+str(errConn)+"'", 4000)
-            print("Erro ao conectar na base de dados 2")
+            
         else:            
             return conn        
 
@@ -177,7 +179,7 @@ class MyForm(QMainWindow):
         except ConnectionError as identifier:
             self.statusBar().setStyleSheet("color: red")
             self.statusBar().showMessage("Sem conexão internet", 4000)
-            print('Sem conexão internet : ',identifier)            
+                       
         else:
             return response
 
@@ -244,7 +246,7 @@ class MyForm(QMainWindow):
         except Error as e:
             self.statusBar().setStyleSheet("color: red")
             self.statusBar().showMessage("Error trying to retrieve data from database!", 5000)
-            print("erro ao solicitar todos os dados : "+str(e))
+            
         except ValueError:
             self.statusBar().setStyleSheet("color: red")
             self.statusBar().showMessage("There is no clients registered into the database!", 5000)            
@@ -279,7 +281,7 @@ class MyForm(QMainWindow):
         except Error as errUser:
             self.statusBar().setStyleSheet("color: red")
             self.statusBar().showMessage("Error trying to retrieve data from database! : "+str(errUser), 4000)
-            print("erro ao solicitar todos os dados : "+str(errUser))
+            
         except ValueError:
             self.statusBar().setStyleSheet("color: red")
             self.statusBar().showMessage("Form incomplete or Valor < 0.01 !", 4000)
@@ -316,7 +318,7 @@ class MyForm(QMainWindow):
         except Error as errListDebt:
             self.statusBar().setStyleSheet("color: red")
             self.statusBar().showMessage("Error trying to retrieve user list debt from database! : "+str(errListDebt), 4000)
-            print("erro ao solicitar lista das dívidas do usuário : "+str(errListDebt))
+            
         except ValueError:
             self.ui.comboBoxIdDivida.clear()
             self.statusBar().setStyleSheet("color: orange")
@@ -370,7 +372,7 @@ class MyForm(QMainWindow):
         except Error as errIdDebt:
             self.statusBar().setStyleSheet("color: red")
             self.statusBar().showMessage("Error deleting data from database! : "+str(errIdDebt), 4000)
-            print("erro ao deletar dívida do usuário : "+str(errIdDebt))
+            
         except ValueError:
             self.statusBar().setStyleSheet("color: red")
             self.statusBar().showMessage("Any ID was provided!", 4000)        
