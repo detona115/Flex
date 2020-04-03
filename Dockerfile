@@ -7,7 +7,7 @@ ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
 
 COPY *.py /code/
-COPY requirements.txt /code/
+# COPY requirements.txt /code/
 
 RUN adduser --quiet --disabled-password qtuser
 
