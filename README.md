@@ -28,6 +28,8 @@ N.B: Esta versão foi testada somente com ubuntu
     ```
     que resultará à ativação dos serviços postgres e adminer (na porta 8080, cuide que esta porta não seja usada por um outro serviço no seu computador).
     
+    Caso queira conferir a mudança dos dados no postgre, use o adminer no seu navegador digitando 'localhost:8080' na barra de endereço.
+    
     docker cria automaticamente uma rede para a comunicação dos dois serviços mencionados em cima no nome 'flex_default'.
     
     - Construa a imagem que vai ser usada para o container
