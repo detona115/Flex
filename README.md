@@ -21,7 +21,7 @@ N.B: Esta versão foi testada somente com ubuntu
   Nesta versão eu uso dois serviços (postgres + adminer) e um container (ubuntu + python + pyqt5)
   
   - Baixa o repositório que deve vir no nome de Flex3.zip 
-  - Descompacta o arquivo .zip onde terá uma pasta 'Flex3'
+  - Descompacta o arquivo .zip e renomea a pasta 'Flex-Flex3' para 'Flex3'
   - Executa o arquivo docker-compose.yaml
     ```
     docker-compose up
