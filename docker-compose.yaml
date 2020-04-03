@@ -17,15 +17,6 @@ services:
     image: adminer
     ports: 
       - "8080:8080"
-
-  #app:
-  #  build: 
-  #    context: .
-  #    dockerfile: Dockerfile
-  #  depends_on: 
-  #    - postgres
-  #  ports: 
-  #    - 80:80
       
 volumes: 
   dbdata:
