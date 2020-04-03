@@ -1,0 +1,31 @@
+version: '3'
+
+services: 
+  postgres:
+    image: postgres
+    environment: 
+      POSTGRES_HOST: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+
+    ports: 
+      - "3308:5432"
+    volumes: 
+      - "dbdata:/var/lib/data"
+
+  adminer:
+    image: adminer
+    ports: 
+      - "8080:8080"
+
+  #app:
+  #  build: 
+  #    context: .
+  #    dockerfile: Dockerfile
+  #  depends_on: 
+  #    - postgres
+  #  ports: 
+  #    - 80:80
+      
+volumes: 
+  dbdata:

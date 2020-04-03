@@ -63,7 +63,7 @@ class MyForm(QMainWindow):
         self.showButton()
 
         self.show()
-        ## Fim construtor
+    ## Fim construtor
 
     # esta função é chamada para ativar ou não o butão excluid divida
     def showButton(self):        
@@ -125,7 +125,7 @@ class MyForm(QMainWindow):
     ### Função que retorna uma conexão à base de dados com
     def connection(self):
         try:
-            conn = psycopg2.connect(host="localhost", user="postgres", password="1234", database="flex")
+            conn = psycopg2.connect(host="postgres", user="postgres", password="1234", database="flex")
             conn.autocommit = True            
         except Error as errConn:
             self.statusBar().setStyleSheet("color: red")
@@ -139,10 +139,11 @@ class MyForm(QMainWindow):
         ### função que tem por objetivo criar a base de dado se não existir
         ### e criar a tabela
         
+        cur = None
         try:
         # conectando ao postgres server e criando a base de dado delivery
             
-            conn = psycopg2.connect(host="localhost", user="postgres", password="1234")
+            conn = psycopg2.connect(host="postgres", user="postgres", password="1234")
             conn.autocommit = True
             cur = conn.cursor()
             
