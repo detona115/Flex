@@ -9,11 +9,8 @@ ENV LANG C.UTF-8
 COPY *.py /code/
 COPY requirements.txt /code/
 
-WORKDIR /code/
-
 RUN adduser --quiet --disabled-password qtuser
 
-#RUN sed -i 's/ universe/ universe multiverse/' /etc/apt/sources.list
 RUN apt update &&                  \
     apt upgrade -y &&              \
     apt dist-upgrade -y &&         \
@@ -45,6 +42,5 @@ RUN apt update &&                  \
         nano                     &&\
     apt clean
 
-#RUN pip3 install -r requirements.txt
+WORKDIR /code/
 
-CMD ["python3", "main.py"]
