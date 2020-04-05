@@ -41,7 +41,7 @@ N.B: Esta versão foi testada somente com ubuntu
 ### Para executar todo o sistema
 
 ```
-docker run -it --network flex3_default --name andy_app -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY -u qtuser -p 8000:8000 app_image python3 main.py
+docker run -it --network flex3_default --name andy_app -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY -u qtuser app_image python3 main.py
 ```
 
 ## Autor ✒️
