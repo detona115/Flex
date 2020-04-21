@@ -50,11 +50,11 @@ class MyFormTest(unittest.TestCase):
         # Testando se a conexão com postgres está ativa ou aberta
         assert expected.closed == 0
         # Testando se a conexão está sendo feita com as credenciais esperadas
-        assert expected.dsn == 'user=postgres password=xxx dbname=flex host=localhost'
+        assert expected.dsn == 'user=debug password=xxx dbname=flex host=172.23.0.1'
         # Testando o Except Error caso ocorra falha na conexão
         with self.assertRaises(psycopg2.Error):    
             with patch('MyFormM.MyForm.connection') as mocked_conn:              
-                mocked_conn.side_effect = psycopg2.connect(host="localhost", user="postgres", password="5678", database="flex")                
+                mocked_conn.side_effect = psycopg2.connect(host="172.23.0.1", user="debug", password="5678", database="flex")                
 
     def test_createDatabase(self): 
         # Testando se função createDatabase está sendo chamada
@@ -62,7 +62,7 @@ class MyFormTest(unittest.TestCase):
             with patch('MyFormM.MyForm.createDatabase') as mocked_createDatabase:                              
                 self.cvt.createDatabase()
                 mocked_createDatabase.assert_called()
-                mocked_createDatabase.side_effect = psycopg2.connect(host="localhost", user="postgres", password="5678")     
+                mocked_createDatabase.side_effect = psycopg2.connect(host="172.23.0.1", user="debug", password="5678",  database="postgres")     
 
     @patch('MyFormM.MyForm.listUserDebts')
     def test_listUserDebts(self, mock):
