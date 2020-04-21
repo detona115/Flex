@@ -12,9 +12,7 @@ env:
 
 before_install:
   - sudo apt-add-repository ppa:beineri/opt-qt551 -y    
-  - sudo apt upgrade -y &&              \
-    apt dist-upgrade -y &&         \
-    apt install -y                 \
+  - sudo apt install -y                 \
         git                        \
         wget                       \
         xvfb                       \
