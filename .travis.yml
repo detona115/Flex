@@ -9,6 +9,10 @@ env:
   - LC_ALL C.UTF-8
   - LANG C.UTF-8
   - DISPLAY=$DISPLAY
+  
+volumes:
+  - /tmp/.X11-unix:/tmp/.X11-unix 
+      
 before_script: pip install docker-compose
 
 install:  
