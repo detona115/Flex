@@ -8,12 +8,13 @@ services:
 env:
   - LC_ALL C.UTF-8
   - LANG C.UTF-8
+  - DISPLAY=$DISPLAY
 before_script: pip install docker-compose
 
 install:  
   - "pip install pytest"
- 
+  - docker-compose up
   
 script: 
-  - docker-compose run app sh -c "python -m pytest tests/ -v"
+   - pytest tests/ -v
  
