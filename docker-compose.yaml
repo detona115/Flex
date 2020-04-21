@@ -31,7 +31,7 @@ services:
     user: qtuser
     environment: 
       - DISPLAY=$DISPLAY
-    restart: on-failure
+    #restart: on-failure
 
     command: python3 main.py
     #    while ! nc -z postgres 5432;
