@@ -5,11 +5,11 @@ services:
     image: postgres
     environment: 
       POSTGRES_HOST: postgres
-      POSTGRES_USER: postgres
+      POSTGRES_USER: debug
       POSTGRES_PASSWORD: 1234
 
     ports: 
-      - "3308:5432"
+      - "5432:5432"
     volumes: 
       - "dbdata:/var/lib/data"
 
@@ -17,6 +17,32 @@ services:
     image: adminer
     ports: 
       - "8080:8080"
-      
+
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    depends_on: 
+      - postgres
+    #ports: 
+    #  - 8000:8000
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix    
+    user: qtuser
+    environment: 
+      - DISPLAY=$DISPLAY
+    restart: on-failure
+
+    command: python3 main.py
+    #    while ! nc -z postgres 5432;
+    #    do
+    #      echo sleeping;
+    #      sleep 1;
+    #    done;
+    #    echo Connected!;
+    #  "  python3 main.py
+    #command: ["/bin/bash", "-c", "while ! netcat -z postgres 5432; do echo sleeping; sleep 3; done; echo Connected!;", "/bin/python3", "main.py"]
+          
 volumes: 
   dbdata:
+
