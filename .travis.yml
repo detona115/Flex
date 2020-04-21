@@ -6,26 +6,49 @@ python:
   
 services:
   - docker
+env:
+  - LC_ALL C.UTF-8
+  - LANG C.UTF-8
 
 before_install:
   - sudo apt-add-repository ppa:beineri/opt-qt551 -y
-  - sudo apt update
-  - sudo apt-get install qt-latest
-  - source /opt/qt55/bin/qt55-env.sh
-  
+  - sudo adduser --quiet --disabled-password qtuser
+  - sudo rm /bin/sh && ln -s /bin/bash /bin/sh
+  - sudo apt update &&                  \
+    apt upgrade -y &&              \
+    apt dist-upgrade -y &&         \
+    apt install -y                 \
+        git                        \
+        wget                       \
+        xvfb                       \
+        flex                       \
+        dh-make                    \
+        debhelper                  \
+        checkinstall               \
+        fuse                       \
+        snapcraft                  \
+        bison                      \
+        libxcursor-dev             \
+        libxcomposite-dev          \
+        software-properties-common \
+        build-essential            \
+        libssl-dev                 \
+        libxcb1-dev                \
+        libx11-dev                 \
+        libgl1-mesa-dev            \
+        libudev-dev                \
+        python3.8                  \
+        python3-pyqt5              \
+        python3-pip                \
+        python3-psycopg2           \
+        python3-requests           \
+        nano                     &&\
+    apt clean
 
 install:
   - "pip install pyqt5"
   - "pip install pytest"
-  - "pip install -r requirements.txt"
-  - sudo mkdir -p /builds && sudo chmod a+rw /builds
-  - sudo mkdir -p /downloads && sudo chmod a+rw /downloads
-  - curl -L -o /downloads/sip.tar.gz http://sourceforge.net/projects/pyqt/files/sip/sip-4.17/sip-4.17.tar.gz
-  - curl -L -o /downloads/pyqt.tar.gz http://skylink.dl.sourceforge.net/project/pyqt/PyQt5/PyQt-5.5.1/PyQt-gpl-5.5.1.tar.gz
-  - tar xzf /downloads/sip.tar.gz -C /builds --keep-newer-files
-  - tar xzf /downloads/pyqt.tar.gz -C /builds --keep-newer-files
-  - cd /builds/sip-4.17 && python configure.py && sudo make && sudo make install
-  - cd /builds/PyQt-gpl-5.5.1 && python configure.py --confirm-license && sudo make && sudo make install
+  - "pip install -r requirements.txt"  
   - docker-compose up
   
 script: python -m pytest tests/ -v
