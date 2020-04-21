@@ -12,7 +12,7 @@ env:
 
 before_install:
   - sudo apt-add-repository ppa:beineri/opt-qt551 -y
-  - sudo adduser --quiet --disabled-password qtuser
+  - adduser --quiet --disabled-password qtuser
   - sudo rm /bin/sh && ln -s /bin/bash /bin/sh
   - sudo apt update &&                  \
     apt upgrade -y &&              \
