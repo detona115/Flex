@@ -1,5 +1,5 @@
 language: python
-sudo: required
+
 python:
   - "3.8"
   - "nightly"
@@ -9,7 +9,7 @@ services:
 
 before_install:
   - sudo apt-add-repository ppa:beineri/opt-qt551 -y
-  - sudo apt-get update
+  - sudo apt update
   - sudo apt-get install qt-latest
   - source /opt/qt55/bin/qt55-env.sh
   
