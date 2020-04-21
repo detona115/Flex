@@ -16,5 +16,5 @@ install:
   - docker-compose up
   
 script: 
-   - pytest tests/ -v
+   - python -m pytest tests/ -v
  
