@@ -52,9 +52,11 @@ PyQt5
     
     - Substitua o arquivo docker-compose que se encontra na pasta principal pelo que se encontra na pasta docker compose V2 
     - Executa o arquivo docker-compose.yaml
-       ```
-       docker-compose up
-       ```
+    
+ ### Para executar todo o sistema
+ ```
+ docker-compose up
+ ```
        
 ### Testes
     - Os testes funcionam somente com a versão dos containers rodando, pois docker cria uma rede brigde específica que conecta os três containers em uma rede isolada
