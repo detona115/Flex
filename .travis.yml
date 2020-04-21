@@ -11,8 +11,7 @@ env:
   - LANG C.UTF-8
 
 before_install:
-  - sudo apt-add-repository ppa:beineri/opt-qt551 -y  
-  - sudo rm /bin/sh && ln -s /bin/bash /bin/sh
+  - sudo apt-add-repository ppa:beineri/opt-qt551 -y    
   - sudo apt update &&                  \
     apt upgrade -y &&              \
     apt dist-upgrade -y &&         \
