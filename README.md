@@ -38,7 +38,8 @@ PyQt5
     
     - Substitua o arquivo docker-compose que se encontra na pasta principal pelo que se encontra na pasta docker compose V2 
     - Executa o arquivo docker-compose.yaml
-    que resultará à ativação dos serviços postgres e adminer (na porta 8080, cuide que esta porta não seja usada por um outro serviço no seu computador).
+    
+       que resultará à ativação dos serviços postgres e adminer (na porta 8080, cuide que esta porta não seja usada por um outro serviço no seu computador).
 
        Caso queira conferir a mudança dos dados no postgre, use o adminer no seu navegador digitando 'localhost:8080' na barra de endereço.
 
