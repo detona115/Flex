@@ -25,9 +25,10 @@ PyQt5
      - Baixa o repositório que deve vir no nome de Flex3.zip 
      - Descompacta o arquivo .zip e renomea a pasta 'Flex-Flex3' para 'Flex3'
      - Executa o arquivo docker-compose.yaml
-       ```
-       docker-compose up
-       ```
+
+ ```
+ docker-compose up
+ ```
        que resultará à ativação dos serviços postgres e adminer (na porta 8080, cuide que esta porta não seja usada por um outro serviço no seu computador).
 
        Caso queira conferir a mudança dos dados no postgre, use o adminer no seu navegador digitando 'localhost:8080' na barra de endereço.
