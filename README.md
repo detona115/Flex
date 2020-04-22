@@ -45,7 +45,7 @@ PyQt5
 
        docker cria automaticamente uma rede para a comunicação dos dois serviços mencionados em cima no nome 'flex_default'.
 
-       - Construa a imagem que vai ser usada para o container
+    - Construa a imagem que vai ser usada para o container
          
    ```
    docker build -t app_image .
