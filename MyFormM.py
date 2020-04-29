@@ -121,7 +121,7 @@ class MyForm(QMainWindow):
     ### Função que retorna uma conexão à base de dados com
     def connection(self):
         try:
-            conn = psycopg2.connect(host="172.23.0.1", user="debug", password="1234", database="flex")
+            conn = psycopg2.connect(host="postgres", user="debug", password="1234", database="flex")
             conn.autocommit = True
         except Error as errConn:
             self.statusBar().setStyleSheet("color: red")
@@ -135,7 +135,7 @@ class MyForm(QMainWindow):
         ### função que tem por objetivo criar a base de dado se não existir
         ### e criar a tabela
 
-        conn = psycopg2.connect(host="172.23.0.1", user="debug", password="1234", database="postgres")
+        conn = psycopg2.connect(host="postgres", user="debug", password="1234", database="postgres")
         try:
             # conectando ao postgres server e criando a base de dado delivery
 
